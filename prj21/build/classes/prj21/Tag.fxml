@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="623.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prj21.FXMLDocumentController">
+   <children>
+      <Pane layoutY="74.0" prefHeight="79.0" prefWidth="794.0" style="-fx-background-color: #A725B9;" styleClass="pane" stylesheets="@../styling/style.css">
+         <children>
+            <Label fx:id="lbl" alignment="CENTER" layoutX="267.0" layoutY="20.0" prefHeight="40.0" prefWidth="290.0" text="Tagging favorite files " textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="18.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Pane layoutX="46.0" layoutY="168.0" prefHeight="441.0" prefWidth="731.0">
+         <children>
+            <TextField fx:id="txtTG" layoutX="46.0" layoutY="173.0" prefHeight="34.0" prefWidth="275.0" promptText="Tags" />
+            <TextField fx:id="txtAt" layoutX="46.0" layoutY="45.0" prefHeight="34.0" prefWidth="275.0" promptText="Author" />
+            <TextField fx:id="txtTR" layoutX="46.0" layoutY="111.0" prefHeight="34.0" prefWidth="275.0" promptText="Title" />
+            <Button fx:id="btnadd" layoutX="580.0" layoutY="393.0" mnemonicParsing="false" onAction="#ADD" prefHeight="34.0" prefWidth="137.0" stylesheets="@../styling/style1.css" text="ADD" textFill="#4e3dff">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Button>
+            <TextArea fx:id="Resume" layoutX="46.0" layoutY="230.0" prefHeight="143.0" prefWidth="275.0" promptText="Summary" />
+            <TextArea fx:id="Cmt" layoutX="392.0" layoutY="47.0" prefHeight="143.0" prefWidth="275.0" promptText="Commentary " />
+            <TextField fx:id="txtFile" layoutX="392.0" layoutY="221.0" prefHeight="34.0" prefWidth="275.0" promptText="File" />
+            <Button fx:id="btnt1" layoutX="530.0" layoutY="274.0" mnemonicParsing="false" onAction="#handle" prefHeight="34.0" prefWidth="137.0" stylesheets="@../styling/style1.css" text="Select One File" textFill="#4e3dff">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

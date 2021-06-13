@@ -1,0 +1,116 @@
+--------------------------------------------------------
+--  Fichier créé - mardi-mai-04-2021   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table FAV
+--------------------------------------------------------
+
+  CREATE TABLE "XE"."FAV" 
+   (	"AUTEUR" VARCHAR2(500 BYTE), 
+	"TITRE" VARCHAR2(500 BYTE), 
+	"TAGS" VARCHAR2(500 BYTE), 
+	"RÉSUMÉ" VARCHAR2(500 BYTE), 
+	"COMMENTAIRES" VARCHAR2(500 BYTE), 
+	"URL" VARCHAR2(500 BYTE), 
+	"LOGIN" VARCHAR2(500 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table USERS
+--------------------------------------------------------
+
+  CREATE TABLE "XE"."USERS" 
+   (	"NOM" VARCHAR2(20 BYTE), 
+	"PRENOM" VARCHAR2(20 BYTE), 
+	"LOGIN" VARCHAR2(20 BYTE), 
+	"MP" VARCHAR2(20 BYTE), 
+	"ADMIN" NUMBER DEFAULT 0
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+REM INSERTING into XE.FAV
+SET DEFINE OFF;
+Insert into XE.FAV (AUTEUR,TITRE,TAGS,"RÉSUMÉ",COMMENTAIRES,URL,LOGIN) values ('Sami smiri','Java','java','java','java','C:\Users\mongi\Desktop\ISG\Business_Result_Intermediate_Student_Boo.pdf','hamdi');
+Insert into XE.FAV (AUTEUR,TITRE,TAGS,"RÉSUMÉ",COMMENTAIRES,URL,LOGIN) values ('mohsen','club','egale','egale','egale','C:\Users\mongi\Desktop\ISG\Nigrou\LOG\Td log.docx','hamdi');
+Insert into XE.FAV (AUTEUR,TITRE,TAGS,"RÉSUMÉ",COMMENTAIRES,URL,LOGIN) values ('zina','feno','legends','legends','legends','C:\Users\mongi\Desktop\ISG\PRGMS\HTML\prj calc\ex4.css','zina123');
+Insert into XE.FAV (AUTEUR,TITRE,TAGS,"RÉSUMÉ",COMMENTAIRES,URL,LOGIN) values ('sami','vamos','java,java,bouhadi','aezdqs','sdfsdfdfs','C:\Users\mongi\Documents\The Witcher 3\user.settings.bak','hamdi');
+Insert into XE.FAV (AUTEUR,TITRE,TAGS,"RÉSUMÉ",COMMENTAIRES,URL,LOGIN) values ('aaaa','aaaa','egale,bouhadi','bvbb','bbbbbbb','C:\Users\mongi\Downloads\Chapitre1MéthodesAgilesVF.pptx','mongi123');
+Insert into XE.FAV (AUTEUR,TITRE,TAGS,"RÉSUMÉ",COMMENTAIRES,URL,LOGIN) values ('ahmed','bouahmed','bouhadi','ChoixF','ChoixF','C:\Users\mongi\Desktop\ISG\SGBD_0_vues.pdf','hamdi');
+Insert into XE.FAV (AUTEUR,TITRE,TAGS,"RÉSUMÉ",COMMENTAIRES,URL,LOGIN) values ('ali','langage','fran,engl','aaaaaaa','aaaaa','C:\Users\mongi\Documents\EGDownloads\180619_guide_rgpd_entreprises_0.pdf','hamdi');
+REM INSERTING into XE.USERS
+SET DEFINE OFF;
+Insert into XE.USERS (NOM,PRENOM,LOGIN,MP,ADMIN) values ('zina','zina','zina123','0000',0);
+Insert into XE.USERS (NOM,PRENOM,LOGIN,MP,ADMIN) values ('hamdi','hamdi','hamdi','hamdi',0);
+Insert into XE.USERS (NOM,PRENOM,LOGIN,MP,ADMIN) values ('Sonia','homri','505041','50504120',0);
+Insert into XE.USERS (NOM,PRENOM,LOGIN,MP,ADMIN) values ('naziha','homri','4040','50',0);
+Insert into XE.USERS (NOM,PRENOM,LOGIN,MP,ADMIN) values ('muhamed','raddaoui','med123','med123',0);
+Insert into XE.USERS (NOM,PRENOM,LOGIN,MP,ADMIN) values ('mongi','nahdi','mongi123','161616',0);
+Insert into XE.USERS (NOM,PRENOM,LOGIN,MP,ADMIN) values ('dhia','nahdi','azer','12365',1);
+Insert into XE.USERS (NOM,PRENOM,LOGIN,MP,ADMIN) values ('dhihgfa','nahfhgdi','azhgfgfher','12g365',0);
+--------------------------------------------------------
+--  DDL for Index FAV_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "XE"."FAV_PK" ON "XE"."FAV" ("TITRE") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index USERS_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "XE"."USERS_PK" ON "XE"."USERS" ("LOGIN") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Trigger BI_FAV
+--------------------------------------------------------
+
+  CREATE OR REPLACE TRIGGER "XE"."BI_FAV" 
+  before insert on "FAV"               
+  for each row  
+begin   
+  if :NEW."TITRE" is null then 
+    select "FAV_SEQ".nextval into :NEW."TITRE" from dual; 
+  end if; 
+end; 
+
+/
+ALTER TRIGGER "XE"."BI_FAV" ENABLE;
+--------------------------------------------------------
+--  Constraints for Table FAV
+--------------------------------------------------------
+
+  ALTER TABLE "XE"."FAV" ADD CONSTRAINT "FAV_PK" PRIMARY KEY ("TITRE")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "XE"."FAV" MODIFY ("LOGIN" NOT NULL ENABLE);
+  ALTER TABLE "XE"."FAV" MODIFY ("URL" NOT NULL ENABLE);
+  ALTER TABLE "XE"."FAV" MODIFY ("TAGS" NOT NULL ENABLE);
+  ALTER TABLE "XE"."FAV" MODIFY ("TITRE" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table USERS
+--------------------------------------------------------
+
+  ALTER TABLE "XE"."USERS" ADD CONSTRAINT "USERS_PK" PRIMARY KEY ("LOGIN")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "XE"."USERS" MODIFY ("LOGIN" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Ref Constraints for Table FAV
+--------------------------------------------------------
+
+  ALTER TABLE "XE"."FAV" ADD CONSTRAINT "FAV_FK" FOREIGN KEY ("LOGIN")
+	  REFERENCES "XE"."USERS" ("LOGIN") ON DELETE CASCADE ENABLE;

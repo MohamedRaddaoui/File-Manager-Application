@@ -1,0 +1,23 @@
+.button {
+    -fx-background-color: #07B2FF;
+    -fx-text-fill: #FFF;
+}
+
+.button:hover {
+    -fx-background-color: #0180bb;
+    -fx-text-fill: #FFF;
+}
+
+.button::selection {
+    -fx-background-color: #0180bb;
+    -fx-text-fill: #FFF;
+}
+
+.button:pressed {
+    -fx-background-color: #3168ff;
+    -fx-text-fill: rgb(0, 247, 0);
+}
+
+.pane {
+    -fx-border-radius: 100px;
+}

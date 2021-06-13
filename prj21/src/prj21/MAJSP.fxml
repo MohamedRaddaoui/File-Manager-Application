@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prj21.FXMLDocumentController">
+   <children>
+      <Pane layoutY="84.0" prefHeight="79.0" prefWidth="811.0" style="-fx-background-color: #C5E204;" styleClass="pane" stylesheets="@../styling/style.css">
+         <children>
+            <Label fx:id="lbl" alignment="CENTER" layoutX="267.0" layoutY="20.0" prefHeight="40.0" prefWidth="290.0" text="Updating or delete favorite files " textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="47.0" layoutY="178.0" prefHeight="441.0" prefWidth="731.0">
+         <children>
+            <Button fx:id="btnDL" layoutX="157.0" layoutY="234.0" mnemonicParsing="false" onAction="#Delete" prefHeight="34.0" prefWidth="137.0" stylesheets="@../styling/style1.css" text="Delete " textFill="#4e3dff">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnUP" layoutX="445.0" layoutY="234.0" mnemonicParsing="false" onAction="#MisAJ" prefHeight="34.0" prefWidth="137.0" stylesheets="@../styling/style1.css" text="Updating " textFill="#4e3dff">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Button>
+            <ComboBox fx:id="ListeUP" layoutX="406.0" layoutY="66.0" prefHeight="34.0" prefWidth="229.0" />
+            <Separator layoutX="97.0" layoutY="185.0" prefHeight="6.0" prefWidth="540.0" />
+            <Separator layoutX="363.0" layoutY="191.0" orientation="VERTICAL" prefHeight="138.0" prefWidth="0.0" />
+            <Label fx:id="lbl1" alignment="CENTER" layoutX="19.0" layoutY="63.0" prefHeight="40.0" prefWidth="290.0" text="choose file: " textFill="#070000">
+               <font>
+                  <Font name="Segoe UI Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="bt" layoutX="419.0" layoutY="119.0" mnemonicParsing="false" onAction="#ChoixF" prefHeight="34.0" prefWidth="203.0" stylesheets="@../styling/style1.css" text="see the files here " textFill="#4e3dff">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
